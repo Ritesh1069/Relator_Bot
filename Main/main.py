@@ -10,10 +10,20 @@ def convert_to_csv(profile):
     # Add categories to the list
     for like in likes:
         category = like.get('category', '')
-        if category:
+        if category not in categories:
             categories.append(category)
+        else:
+            pass
     # Join all categories into a single string
-    categories_str = ', '.join(categories)
+    categories_str = ','.join(categories)
+   
+    #checking elements
+    set1 = set(categories)
+    if category not in set1:
+        set1 += (category,)
+    else:
+        pass
+
     # Get profile link
     profile_link = profile.get('link', '')
     # Write data to a CSV file
@@ -30,8 +40,10 @@ def convert_to_csv(profile):
         }
         writer.writerow(row)
 
+
+
 def main(): 
-    token = "EAAOo80pc1RABO80NOUxygZBnKY97aRBPqCvZAJTxWqEsViZBorZB8yVUZAddHliLLd62AoT2loVdkJKU6WZCG58TL6aCZA2bQf30JQZAOFvt9m9ZAouKuZAvmZBrIXEYvUtolqK6qFnXosVJZBmZBtY9CK2bhxje8fvXPtSZAOu7WXpKAzJK48cFBcyQ5wKUjencipMZA58xs86BVjT98DgjZBGEc2CIYjnFG9P49qNM3tpthI4OdfNE1XKwld2V2KN8re5dJwZDZD"
+    token = "EAAOo80pc1RABO1wF8BIwAQi9V7kPm5SojuPuFSGcsZCPSnaUbdNrPtjL0ikgIxYclUjpZBZA7vniqkfBrxLUOQirYtULBcxe4sHOZC71Tknsl0tsduw3SEQZBC5XVL40nQypLeo9KfCO1BvGf3YXn5LVWcy7IWTRaeuAKvdI5mPTVb9PM1ZATyqfvn9t7Xjyuijv43A8OGEUJB9i7JXVxnKTNFWL5SFVrvZAuoZBZBIBV2XZCV5ErWamNM2R5SFjRLKMAZD"
     
     graph = facebook.GraphAPI(token) 
     profile = graph.get_object('me', fields='first_name, gender, birthday, email, link, likes{category}')
