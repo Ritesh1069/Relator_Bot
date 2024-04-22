@@ -6,7 +6,7 @@ def convert_to_csv(profile):
     # Get profile link
     profile_link = profile.get('link', '')
     # Extract necessary fields from the profile JSON object
-    fields = ['first_name', 'gender', 'birthday', 'email', 'profile_link', 'categories']
+    fields = ['first_name', 'gender', 'birthday', 'email', 'profile_link', 'categories','age_range','location']
     likes = profile.get('likes', {}).get('data', [])  # Extract 'likes' data
     # Create a list to store all categories
     categories = []
@@ -37,7 +37,9 @@ def convert_to_csv(profile):
             'birthday': profile.get('birthday', ''),
             'email': profile.get('email', ''),
             'profile_link': profile_link,
-            'categories': categories_str  # Include categories in the CSV output
+            'categories': categories_str,# Include categories in the CSV output
+            'age_range': (str(profile.get('age_range', '').get('min', [])) + "-"+ str(profile.get('age_range', '').get('max', []))),
+            'location': profile.get('location', '').get('name', [])
         }
         writer.writerow(row)
 
@@ -45,7 +47,7 @@ def main(key):
     token = key
     
     graph = facebook.GraphAPI(token) 
-    profile = graph.get_object('me', fields='first_name, gender, birthday, email, link, likes{category}')
+    profile = graph.get_object('me', fields='first_name, gender, birthday, email, link, likes{category}, age_range, location')
     file= pd.read_csv("profile_dataNewest.csv")
     if ((file['first_name'].eq(profile.get('first_name', '')).any()) & (file['email'].eq(profile.get('email', '')).any())):
         print("user already exists")
@@ -54,4 +56,4 @@ def main(key):
         convert_to_csv(profile)
         print("Successfully updated the user")
         
-main("EAAOo80pc1RABO3za5pOgYek939dXlTGT8rZCOe1Bv7qZCZAtKluVa0UDex35vQprtbOBkyTVTBqMDgZBvUfYJoQ1q0xgLOAWJVltrslV4cw1Tm7WuG1a7TGjjcrZABrvReZCvKAgexdktqsA7XOlwAuYhce4Vpb1WPG7lyflCjY6fPpqtVZBkiVIeQGi1QqKzaEj3xKn7xSYoluXHrH7zsZD")
+main("EAAOo80pc1RABO5uPZA7xVZBeJAbDDjFZBkAZBp5M2YZBdGLKkCbJe2dOZAEVK14YlgpbkWy1obGSnMfFMjwI9jgsUrjyQbY0JR0q0kTZBYobsCulmbVPbsQSydwzLHYLqnKZAnon6LztZB76BVeuWPG08nZC9QZCDCgYD25UR4FI86h2cgVpFmfXfDVqzH4ZCZBjvZCPNduvYNvsh03pEZB6nqNadZBJcVODBTshjZBJ6vhC9IRAXc4so0EIMKZCgZCpuK0QIhuewZDZD")
