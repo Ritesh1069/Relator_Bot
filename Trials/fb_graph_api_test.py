@@ -3,30 +3,23 @@ import facebook
 import pandas as pd
 
 def convert_to_csv(profile):
-    # Get profile link
     profile_link = profile.get('link', '')
-    # Extract necessary fields from the profile JSON object
     fields = ['first_name', 'gender', 'birthday', 'email', 'profile_link', 'categories','age_range','location']
-    likes = profile.get('likes', {}).get('data', [])  # Extract 'likes' data
-    # Create a list to store all categories
+    likes = profile.get('likes', {}).get('data', [])
     categories = []
-    # Add categories to the list
     for like in likes:
         category = like.get('category', '')
         if category not in categories:
             categories.append(category)
         else:
             pass
-    # Join all categories into a single string
     categories_str = ','.join(categories)
    
-    #checking elements
     set1 = set(categories)
     if category not in set1:
         set1 += (category,)
     else:
         pass
-    # Write data to a CSV file
     with open('profile_dataNewest.csv', 'w', newline='', encoding='utf-8') as csvfile:
         writer = csv.DictWriter(csvfile, fieldnames=fields)
         writer.writeheader()
@@ -56,4 +49,4 @@ def main(key):
         convert_to_csv(profile)
         print("Successfully updated the user")
         
-main("EAAOo80pc1RABO5uPZA7xVZBeJAbDDjFZBkAZBp5M2YZBdGLKkCbJe2dOZAEVK14YlgpbkWy1obGSnMfFMjwI9jgsUrjyQbY0JR0q0kTZBYobsCulmbVPbsQSydwzLHYLqnKZAnon6LztZB76BVeuWPG08nZC9QZCDCgYD25UR4FI86h2cgVpFmfXfDVqzH4ZCZBjvZCPNduvYNvsh03pEZB6nqNadZBJcVODBTshjZBJ6vhC9IRAXc4so0EIMKZCgZCpuK0QIhuewZDZD")
+main("<API Token>")
