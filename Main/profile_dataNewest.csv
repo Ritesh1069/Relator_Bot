@@ -1,9 +1,9 @@
-first_name,gender,birthday,email,profile_link,categories
-Ritesh,male,01/16/2004,riteshmmaurya2004@gmail.com,https://www.facebook.com/app_scoped_user_id/YXNpZADpBWEZAFUGg0RHZAuODdhLV90X1FDZAkpiU0JVcHQtOEpMXzJWN09rOENNa1pxZA2djZA2tRTTZABSEF2OWZA3UXdRUGZAOMzdaNmFuTzg2dVJMaDcyd29tWHdjeWJtaXRIMUlPd0MzWFdkbHhxX2NtdXV3RjgtY0EZD/,"Politician,Government organisation,Photographer,Software company,Artist,Video creator,Gaming,Science and tech"
-Yash,male,-,-,-,"Digital creator,Government organisation,Software company,Cause,Gaming,Science and tech,Art,Property"
-Aishwarya,female,,,,"Digital creator,Photographer,Software company,Cause,Gaming,Musician/Band,Institute"
-Gaurav,female,,,,"Politician,Photographer,Software company,Gaming,Property"
-Shubham,male,,,,"Artist,Software company,Cause,Institute,Government organisation"
-Pranay,Male,,,,Politician
-Tejas,female,,,,Science and tech
-Kritarth,,,,,"Art,Musician"
+first_name,gender,birthday,age_range,location,email,profile_link,categories
+Ritesh,male,01/16/2004,18-20,"Mumbai,Maharashtra",riteshmmaurya2004@gmail.com,https://www.facebook.com/app_scoped_user_id/YXNpZADpBWEZAFUGg0RHZAuODdhLV90X1FDZAkpiU0JVcHQtOEpMXzJWN09rOENNa1pxZA2djZA2tRTTZABSEF2OWZA3UXdRUGZAOMzdaNmFuTzg2dVJMaDcyd29tWHdjeWJtaXRIMUlPd0MzWFdkbHhxX2NtdXV3RjgtY0EZD/,"Politician,Government organisation,Photographer,Software company,Artist,Video creator,Gaming,Science and tech"
+Yash,male,-,18-20,"Mumbai,Maharashtra",-,-,"Digital creator,Government organisation,Software company,Cause,Gaming,Science and tech,Art,Property"
+Aishwarya,female,,18-20,"Mumbai,Maharashtra",,,"Digital creator,Photographer,Software company,Cause,Gaming,Musician/Band,Institute"
+Gaurav,female,,18-20,"Mumbai,Maharashtra",,,"Politician,Photographer,Software company,Gaming,Property"
+Shubham,male,,18-20,"Mumbai,Maharashtra",,,"Artist,Software company,Cause,Institute,Government organisation"
+Pranay,Male,,18-20,"Mumbai,Maharashtra",,,Politician
+Tejas,female,,18-20,"Mumbai,Maharashtra",,,Science and tech
+Kritarth,,,18-20,"Mumbai,Maharashtra",,,"Art,Musician"
