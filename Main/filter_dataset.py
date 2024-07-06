@@ -5,21 +5,17 @@ def filter_ds(target_user_name, df):
     if not user_row.empty:
         target_categories = set(user_row['categories'].iloc[0].split(',')) 
         
-        # loc_pref = input("Do you want to filter users by location (y/n): ")
-        loc_pref = "y"
+        loc_pref = input("Do you want to filter users by location (y/n): ")
         if loc_pref == 'y':
-            # target_location1 = input('Enter location ("Mumbai,Maharashtra","Pune,Maharashtra","Nashik,Maharashtra","Thane,Maharashtra","Navi Mumbai,Maharashtra"): ')
-            target_location1 = "Mumbai,Maharashtra"
-        # age_pref = input('Do you want to filter users by age (y/n): ')
-        age_pref = "y"
+            target_location1 = input('Enter location ("Mumbai,Maharashtra","Pune,Maharashtra","Nashik,Maharashtra","Thane,Maharashtra","Navi Mumbai,Maharashtra"): ')
+            
+        age_pref = input('Do you want to filter users by age (y/n): ')
         if age_pref == 'y':
-            # target_age_range1 = input('Enter age range ("13-17","18-20","21+"): ')
-            target_age_range1 = "21+"
-        # gender_pref = input('Do you want to filter users by gender (y/n): ')
-        gender_pref = "y"
+            target_age_range1 = input('Enter age range ("13-17","18-20","21+"): ')
+            
+        gender_pref = input('Do you want to filter users by gender (y/n): ')
         if gender_pref == 'y':
-            # target_gender1 = input('Enter Gender (male/female): ')
-            target_gender1 = "male"
+            target_gender1 = input('Enter Gender (male/female): ')
             
         if loc_pref == 'y' and age_pref == 'n' and gender_pref == 'n': 
             mask = (df['location'] == target_location1)
